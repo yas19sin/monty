@@ -38,8 +38,6 @@ void stack(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	(void)stack;
-
-	queue_mode = 0;
 }
 
 /**
@@ -51,8 +49,6 @@ void queue(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	(void)stack;
-
-	queue_mode = 1;
 }
 
 /**
@@ -60,7 +56,7 @@ void queue(stack_t **stack, unsigned int line_number)
  * @stack: A pointer to the top of the stack.
  * @value: Value to be added to the queue.
  */
-void enqueue(stack_t **stack, unsigned int value)
+void enqueue(stack_t **stack, int value)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 
@@ -81,6 +77,7 @@ void enqueue(stack_t **stack, unsigned int value)
 	else
 	{
 		stack_t *temp = *stack;
+
 		while (temp->next != NULL)
 		{
 			temp = temp->next;

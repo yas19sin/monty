@@ -3,7 +3,7 @@
 /**
  * push - Adds a new node at the beginning of a stack_t list.
  * @stack: Double pointer to the head of the stack.
- * @value: Value to be added to the stack.
+ * @line_number: line_number.
  */
 void push(stack_t **stack, unsigned int line_number)
 {
@@ -27,8 +27,6 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	/*printf("Pushing: %u\n", value);*/
-
 	new_node->n = value;
 	new_node->prev = NULL;
 	new_node->next = *stack;
@@ -37,13 +35,6 @@ void push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = new_node;
 
 	*stack = new_node;
-
-	if (queue_mode)
-	{
-		enqueue(stack, value);
-	}
-
-	queue_mode = 0;
 }
 
 /**

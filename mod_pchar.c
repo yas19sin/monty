@@ -47,6 +47,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 	putchar('\n');
 }
 
+
 /**
  * comments - Doesn't do anything.
  * @stack: Pointer to the head of the stack.
