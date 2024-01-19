@@ -7,27 +7,25 @@
  */
 void rotr(stack_t **stack, unsigned int line_number)
 {
+	stack_t *temp, *last;
+
 	(void)line_number;
 
 	if (*stack && (*stack)->next)
 	{
-		stack_t *temp = *stack;
-		stack_t *last = NULL;
+		temp = *stack;
+		last = *stack;
 
-		while (temp->next != NULL)
-		{
-			last = temp;
-			temp = temp->next;
-		}
+		while (last->next)
+			last = last->next;
 
-		last->next = NULL;
-		temp->prev = NULL;
-		temp->next = *stack;
-		(*stack)->prev = temp;
-		*stack = temp;
+		last->next = temp;
+		temp->prev = last;
+		*stack = temp->next;
+		temp->next = NULL;
+		(*stack)->prev = NULL;
 	}
 }
-
 
 /**
  * stack - Sets the format of the data to a stack (LIFO).
